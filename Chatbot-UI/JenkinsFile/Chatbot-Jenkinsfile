@@ -78,7 +78,7 @@ pipeline{
         }
         stage('Deploy to kubernetes'){
             steps{
-                withAWS(credentials: 'aws-key', region: 'ap-south-1'){
+                withAWS(credentials: 'aws_key', region: 'ap-south-1'){
                 script{
                     withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
                        sh 'kubectl apply -f k8s/chatbot-ui.yaml'
